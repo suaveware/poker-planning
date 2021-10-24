@@ -1,7 +1,6 @@
 <script>
 	import '../app.css';
 	import { state } from '../state';
-	import { setContext } from 'svelte';
 	import { isClient } from '../helpers';
 
 	const patternList = [
@@ -48,10 +47,15 @@
 	$: state?.setCardPattern(cardPattern);
 </script>
 
-<div class="bg-base-200 w-full h-full text-base-content" data-theme={theme}>
-	<div class="flex justify-between px-8 py-4">
-		<span />
-		<span class="flex gap-4">
+<div
+	class="bg-base-200 w-full h-full overflow-y-scroll text-base-content flex flex-col"
+	data-theme={theme}
+>
+	<div
+		class="flex justify-between items-center px-8 py-4 sticky top-0 bg-base-300 shadow z-50 gap-6"
+	>
+		<h1 class="text-xl font-bold">{$state?.currentRoom.name}</h1>
+		<span class="flex gap-4 overflow-x-scroll px-4">
 			<select class="select select-sm w-36" bind:value={cardPattern}>
 				{#each patternList as { value, label }}
 					<option {value} selected={value === theme}>{label}</option>
