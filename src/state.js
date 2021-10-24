@@ -125,14 +125,14 @@ export const state = (() => {
 				...currentState,
 				currentRoom: {
 					...currentState.currentRoom,
+					showCards: false,
 					rounds: [...currentState.currentRoom.rounds, {}]
 				}
 			};
 			set(newState);
-			const { key, ...changes } = currentState.currentRoom;
 
 			Rooms.update(
-				{ rounds: Rooms.util.append({ placeholder: true }) },
+				{ rounds: Rooms.util.append({ placeholder: true }), showCards: false },
 				currentState.currentRoom.key
 			).finally(this.refreshCurrentRoom.bind(this));
 		}

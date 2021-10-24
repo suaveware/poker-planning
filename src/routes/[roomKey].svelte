@@ -23,7 +23,7 @@
 	onMount(() => {
 		state.loadRoom(roomKey);
 
-		interval = setInterval(state.refreshCurrentRoom.bind(state), 5000);
+		interval = setInterval(state.refreshCurrentRoom.bind(state), 2000);
 	});
 
 	onDestroy(() => {
@@ -44,8 +44,9 @@
 </script>
 
 <div
-	class="w-full grid items-start grid-cols-1 lg:grid-cols-10 xl:grid-cols-12 gap-6 max-w-screen-2xl mx-auto flex-grow"
+	class="w-full grid items-start grid-cols-1 lg:grid-cols-10 lg:pt-12 xl:grid-cols-12 gap-6 max-w-screen-2xl mx-auto flex-grow"
 >
+	<!-- ACTIONS -->
 	<div
 		class="text-2xl justify-center col-span-full row-start-1 lg:col-start-2 lg:col-span-2 lg:flex-col lg:justify-start gap-4 flex sticky py-8 top-16 bg-base-200 z-40"
 	>
@@ -57,6 +58,7 @@
 		</button>
 	</div>
 
+	<!-- PLAYED CARDS -->
 	<div
 		class="text-2xl col-span-full row-start-2 grid-cols-2 px-6 sm:px-10 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 lg:col-start-4 lg:col-end-10 lg:row-start-1 xl:col-start-4 xl:col-end-12 grid justify-start"
 	>
@@ -70,6 +72,7 @@
 		{/each}
 	</div>
 
+	<!-- CARD OPTIONS -->
 	<div
 		class="flex col-span-full sticky bottom-0 space-x-4 w-full overflow-x-scroll overflow-y-visible py-8 px-8 mt-auto"
 	>
