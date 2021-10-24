@@ -1,0 +1,68 @@
+<script>
+	import '../app.css';
+	import { state } from '../state';
+	import { setContext } from 'svelte';
+	import { isClient } from '../helpers';
+
+	const patternList = [
+		{ value: 'yyy', label: 'Default' },
+		{ value: 'jigsaw', label: 'Jigsaw' },
+		{ value: 'piano', label: 'Piano' },
+		{ value: 'food', label: 'Food' },
+		{ value: 'kiwi', label: 'Kiwi' },
+		{ value: 'steelbeams', label: 'Steelbeams' },
+		{ value: 'brickwall', label: 'Brickwall' },
+		{ value: 'bubbles', label: 'Bubbles' },
+		{ value: 'skulls', label: 'Skulls' }
+	];
+
+	const themeList = [
+		{ value: '', label: 'Default' },
+		{ value: 'light', label: 'Light' },
+		{ value: 'dark', label: 'Dark' },
+		{ value: 'cupcake', label: 'Cupcake' },
+		{ value: 'bumblebee', label: 'Bumblebee' },
+		{ value: 'emerald', label: 'Emerald' },
+		{ value: 'corporate', label: 'Corporate' },
+		{ value: 'synthwave', label: 'Synthwave' },
+		/* { value: 'retro', label: 'Retro' }, */
+		{ value: 'cyberpunk', label: 'Cyberpunk' },
+		/* { value: 'valentine', label: 'Valentine' }, */
+		{ value: 'halloween', label: 'Halloween' },
+		/* { value: 'garden', label: 'Garden' }, */
+		{ value: 'forest', label: 'Forest' },
+		{ value: 'aqua', label: 'Aqua' },
+		{ value: 'lofi', label: 'Lofi' },
+		{ value: 'pastel', label: 'Pastel' },
+		{ value: 'fantasy', label: 'Fantasy' },
+		{ value: 'wireframe', label: 'Wireframe' },
+		{ value: 'black', label: 'Black' },
+		/* { value: 'luxury', label: 'Luxury' }, */
+		{ value: 'dracula', label: 'Dracula' }
+	];
+
+	let theme = (isClient() && localStorage.getItem('theme')) || '';
+	$: isClient() && localStorage.setItem('theme', theme);
+
+	let cardPattern = $state?.cardPattern;
+	$: state?.setCardPattern(cardPattern);
+</script>
+
+<div class="bg-base-200 w-full h-full text-base-content" data-theme={theme}>
+	<div class="flex justify-between px-8 py-4">
+		<span />
+		<span class="flex gap-4">
+			<select class="select select-sm w-36" bind:value={cardPattern}>
+				{#each patternList as { value, label }}
+					<option {value} selected={value === theme}>{label}</option>
+				{/each}
+			</select>
+			<select class="select select-sm w-36" bind:value={theme}>
+				{#each themeList as { value, label }}
+					<option {value} selected={value === theme}>{label}</option>
+				{/each}
+			</select>
+		</span>
+	</div>
+	<slot />
+</div>
