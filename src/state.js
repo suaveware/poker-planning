@@ -23,6 +23,10 @@ export const state = (() => {
 
 		// Config
 		setCardPattern(cardPattern) {
+			if (!isClient()) {
+				return;
+			}
+
 			const playerId = localStorage.getItem('id');
 			const lastRoundIndex = currentState.currentRoom.rounds.length - 1;
 			const currentRound = currentState.currentRoom.rounds[lastRoundIndex] || {};

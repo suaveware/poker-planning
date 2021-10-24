@@ -19,7 +19,7 @@
 	{#if playerName}
 		<RoomList />
 	{:else}
-		<div>
+		<div class="w-full flex justify-center pt-40">
 			<InitialForm
 				onSubmit={(newName) => {
 					playerName = newName;
