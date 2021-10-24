@@ -15,7 +15,7 @@
 	});
 </script>
 
-<div class="inline-flex flex-wrap gap-8 justify-start p-12">
+<div class="inline-flex flex-wrap gap-8 justify-start p-12 w-full">
 	{#if playerName}
 		<RoomList />
 	{:else}
