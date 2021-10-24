@@ -55,7 +55,7 @@
 		class="flex justify-between items-center px-8 py-4 sticky top-0 bg-base-300 shadow z-50 gap-6"
 	>
 		<h1 class="text-xl font-bold">{$state?.currentRoom.name}</h1>
-		<span class="flex gap-4 overflow-x-scroll px-4">
+		<span class="flex gap-4 overflow-x-scroll sm:overflow-x-hidden px-4">
 			<select class="select select-sm w-36" bind:value={cardPattern}>
 				{#each patternList as { value, label }}
 					<option {value} selected={value === theme}>{label}</option>

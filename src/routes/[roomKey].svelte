@@ -44,7 +44,7 @@
 </script>
 
 <div
-	class="w-full grid items-start grid-cols-1 lg:grid-cols-10 lg:pt-12 xl:grid-cols-12 gap-6 max-w-screen-2xl mx-auto flex-grow"
+	class="w-full grid items-start grid-cols-1 lg:grid-cols-10 lg:pt-12 xl:grid-cols-12 gap-6 max-w-screen-xl mx-auto flex-grow"
 >
 	<!-- ACTIONS -->
 	<div

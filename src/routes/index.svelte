@@ -15,7 +15,9 @@
 	});
 </script>
 
-<div class="inline-flex flex-wrap gap-8 justify-start p-12 w-full">
+<div
+	class="inline-flex flex-wrap gap-8 sm:justify-start justify-center max-w-screen-xl p-12 mx-auto w-full"
+>
 	{#if playerName}
 		<RoomList />
 	{:else}
