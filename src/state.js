@@ -35,7 +35,6 @@ export const state = (() => {
 			localStorage.setItem('cardPattern', cardPattern);
 
 			if (currentRound[playerId]) {
-				console.log(`playerId`, playerId);
 				this.chooseCard(currentRound[playerId].value);
 			}
 		},

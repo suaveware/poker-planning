@@ -43,7 +43,7 @@
 	let theme = (isClient() && localStorage.getItem('theme')) || '';
 	$: isClient() && localStorage.setItem('theme', theme);
 
-	$: cardPattern = $state?.cardPattern || 'yyy';
+	$: cardPattern = (isClient() && localStorage.getItem('cardPattern')) || 'yyy';
 	$: state?.setCardPattern(cardPattern);
 </script>
 
