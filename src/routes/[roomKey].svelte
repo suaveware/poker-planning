@@ -48,8 +48,11 @@
 >
 	<!-- ACTIONS -->
 	<div
-		class="text-2xl justify-center col-span-full row-start-1 lg:col-start-2 lg:col-span-2 lg:flex-col lg:justify-start gap-4 flex sticky py-8 top-16 bg-base-200 z-40"
+		class="text-2xl justify-center items-center col-span-full row-start-1 lg:items-stretch lg:col-start-2 lg:col-span-2 lg:flex-col lg:justify-start gap-4 flex sticky py-8 top-16 bg-base-200 z-40"
 	>
+		<h1 class="text-2xl text-center font-bold" on:click={handleNewRoundClick}>
+			{$state?.currentRoom.name}
+		</h1>
 		<button class="btn btn-secondary btn-outline" on:click={handleNewRoundClick}>
 			New round
 		</button>
